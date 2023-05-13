@@ -1,0 +1,88 @@
+#Functions
+def levelfind (chapter, missionlist):
+  found = 0
+  z = 0
+  for x in chapter:
+    for i in x.values():
+      print(i)
+      if z < len(missionlist) and missionlist[z] in i:
+        found = 1
+      if z < len(missionlist) and (missionlist[z] in i) and (missionlist[z+1] in i):
+        found = 2
+      z = z + 1
+    z = 0
+        
+#vars
+program = True
+missionslist = []
+eoc3 = []
+itf1 = []
+itf2 = []
+itf3 = []
+sol = []
+
+
+#Program
+while program:
+  print("Welcome to the Monthly Mission Calculator for Battle Cats. This calculator should optimise monthly missions in battle cats for energy, which means you will be getting stages with 2+ enemies on your hit list.\n")
+  chapter = input("Which chapter is your monthly mission on? Please use the following inputs:\nEmpire of Cats 1 = eoc1\nInto the Future 2 = itf2\nCats of the Cosmos 3 = cotc3\nStories of Legend = sol (star doesn't matter)\nYour chapter: ")
+  chapter = chapter.lower()
+  if chapter == "eoc2":
+    chapter = [{"Korea" : ["doge"]},
+        {"Mongolia" : ["doge","snache"]},
+        {"China" : ["doge, snache"]},
+        {"Thailand" : ["doge", "snache", "those guys"]},
+        {"Cambodia" : ["doge", "snache", "those guys"]},
+        {"Philippines" : ["doge", "snache", "those guys"]},
+        {"Japan" : ["doge", "snache", "those guys", "hippoe"]},
+        {"Australia" : ["doge", "snache", "those guys"]},
+        {"Singapore" : ["doge", "snache", "those guys"]},
+        {"Maldives" : ["doge", "snache", "those guys", "pigge"]},
+        {"India" : ["doge", "snache", "those guys", "hippoe"]},
+        {"Nepal" : ["doge", "snache", "those guys", "pigge"]},
+        {"Dubai" : ["doge", "snache", "those guys", "jackie peng"]},
+        {"Saudi Arabia" : ["doge", "snache", "those guys", "hippoe"]},
+        {"Kenya" : ["doge", "snache", "those guys", "pigge", "hippoe"]},
+        {"Madagascar" : ["those guys", "doge", "gory"]},
+        {"South Africa" : ["doge", "snache", "those guys", "jackie peng", "pigge", "hippoe"]},
+        {"Ghana" : ["doge", "snache", "those guys", "jackie peng", "pigge"]},
+        {"Sahara" : ["those guys", "gory", "baa baa"]},
+        {"Egypt" : ["doge", "snache", "those guys", "baa baa", "pigge", "hippoe", "gory"]},
+        {"Turkey" : ["doge", "snache", "those guys", "baa baa", "pigge", "hippoe", "gory", "jackie peng"]},
+        {"Russia" : ["snache", "those guys", "baa baa", "jackie peng", "gory"]},
+        {"Greece" : ["those guys", "pigge", "sir seal"]},
+        {"Italy" : ["hippoe", "pigge", "jackie peng", "gory"]},
+        {"Monaco" : ["doge", "snache", "hippoe,", "baa baa", "jackie peng"]},
+        {"Spain" : ["croco", "sir seal"]},
+        {"France" : ["doge", "snache", "those guys", "croco", "baa baa", "gory", "sir seal"]},
+        {"Germany" : ["doge", "snache", "those guys", "croco", "gory", "sir seal", "jackie peng", "hippoe", "pigge"]},
+        {"Denmark" : ["doge", "snache", "those guys", "croco", "leboin"]},
+        {"Norway" : ["snache", "those guys", "croco", "baa baa", "gory", "sir seal", "jackie peng", "hippoe", "pigge"]},
+        {"United Kingdom" : ["croco", "those guys", "baa baa", "leboin", "pigge"]},
+        {"Greenland" : ["those guys", "bb bunny", "sir seal", "pigge"]},
+        {"Canada" : ["snache", "those guys", "croco", "baa baa", "gory", "sir seal", "jackie peng", "hippoe", "pigge"]},
+        {"New York" : ["snache", "those guys", "baa baa", "gory", "sir seal", "jackie peng", "hippoe", "pigge"]},
+        {"Bermuda" : ["doge", "snache", "those guys", "croco", "bb bunny", "kang roo"]},
+        {"Jamaica" : ["doge", "snache", "those guys", "croco", "bb bunny", "baa baa", "hippoe", "pigge", "leboin"]},
+        {"Colombia" : ["doge", "snache", "those guys", "croco", "bb bunny", "baa baa", "hippoe", "pigge", "kang roo"]},
+        {"Brazil" : ["doge", "those guys", "squire rel", "mooth"]},
+        {"Argentina" : ["doge", "snache", "those guys", "squire rel", "gory", "sir seal", "jackie peng"]},
+        {"Machu Pichu" : ["doge", "snache", "those guys", "squire rel", "gory", "sir seal", "jackie peng", "leboin", "kang roo"]},
+        {"Easter Island" : ["those guys", "croco", "squire rel", "one horn"]},
+        {"Mexico" : ["doge", "snache", "those guys", "squire rel", "gory", "sir seal", "jackie peng", "leboin", "kang roo"]},
+        {"Nasa" : ["doge", "snache", "those guys", "croco", "bb bunny", "pigge", "sir seal", "one horn"]},
+        {"Las Vegas" : ["doge", "snache", "those guys", "teacher bear", "squire rel"]},
+        {"Hollywood" : ["hippoe", "pigge", "jackie peng", "gory", "sir seal", "leboin", "kang roo", "mooth"]},
+        {"Alaska" : ["squire rel", "teacher bear", "pigge", "bb bunny", "mooth"]},
+        {"Hawaii" : ["those guys", "hippoe", "jackie peng", "gory", "sir seal", "leboin", "kang roo", "one horn", "teacher bear"]},
+        {"Moon" : ["those guys", "croco", "squire rel", "jackie peng", "hippoe", "dark emporer nyandam", "one horn"]}
+        ]
+    chaptername = "eoc2"
+  missions = int(input("How many of your missions are in " + str(chaptername) + "? : "))
+  while missions > 0: 
+    monthlymission = input("Put in the enemy you need to find here (Exactly as worded on BCwiki): ")
+    monthlymission = monthlymission.lower()
+    missionslist.append(monthlymission)
+    missions = missions -1
+    print(missionslist)
+  print(levelfind(chapter, missionslist))
